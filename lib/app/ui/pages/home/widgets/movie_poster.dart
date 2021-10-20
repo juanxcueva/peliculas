@@ -34,11 +34,13 @@ class MoviePoster extends StatelessWidget {
                 SizedBox(
                   height: 5,
                 ),
-                Text(
-                  "STAR WARS y el regreso de sherk con burro de protagonista",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
+                Flexible(
+                  child: Text(
+                    "STAR WARS y el regreso de sherk con burro de protagonista",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
+                  ),
                 )
               ],
             ),

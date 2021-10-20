@@ -7,9 +7,11 @@ class MovieSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Container(
       width: double.infinity,
-      height: 275,
+      height: 290,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

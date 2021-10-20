@@ -1,8 +1,11 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:peliculas/app/domain/models/movie_model.dart';
 
 class CardSwiper extends StatelessWidget {
-  const CardSwiper({Key? key}) : super(key: key);
+  const CardSwiper({Key? key, required this.movies}) : super(key: key);
+
+  final List<Movie>? movies;
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +18,12 @@ class CardSwiper extends StatelessWidget {
         layout: SwiperLayout.STACK,
         itemHeight: size.height * .4,
         itemWidth: size.width * .6,
-        itemCount: 10,
+        itemCount: movies!.length,
         itemBuilder: (_, int index) {
+
+          final movie=movies![index];
+          print(movie.posterPath);
+
           return GestureDetector(
             onTap: ()=>Navigator.pushNamed(context, "detail",arguments: "movie-instance"),
             
