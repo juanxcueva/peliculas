@@ -1,8 +1,9 @@
 
 
-import 'package:peliculas/app/domain/models/movie_model.dart';
 
 abstract class MovieRepository{
-  Future<List<Movie>> getMovies();
+  Future<Map<String, dynamic>> getMovies();
+  Future<Map<String, dynamic>> getMoviesPopular(int page);
+
    
 }

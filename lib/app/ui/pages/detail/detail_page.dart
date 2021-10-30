@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peliculas/app/domain/models/movie_model.dart';
 import 'package:peliculas/app/ui/pages/detail/widgets/casting_cards.dart';
 import 'widgets/custom_appbar.dart';
 import 'widgets/overview.dart';
@@ -9,20 +10,17 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String movie =
-        ModalRoute.of(context)?.settings.arguments.toString() ?? "No-movie";
+    final Movie movie =
+        ModalRoute.of(context)!.settings.arguments as Movie;
     return Scaffold(
       body: CustomScrollView(
         physics: BouncingScrollPhysics(),
         slivers: [
-          CustomAppBar(),
+          CustomAppBar(backDrop: movie.fullBackDropPath, title: movie.title),
           SliverList(
               delegate: SliverChildListDelegate([
-            PosterAndTitle(),
-            OverView(),
-            OverView(),
-            OverView(),
-            OverView(),
+            PosterAndTitle(posterImage: movie.fullPosterImg, title: movie.title, originalTitle: movie.originalTitle, voteAverage: "${movie.voteAverage}",),
+            OverView(overview: movie.overview),
             CastingCards(),
 
           ])),
